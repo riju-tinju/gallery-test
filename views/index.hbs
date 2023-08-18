@@ -1,0 +1,22 @@
+
+
+<!-- Hero -->    
+        <div class="hero">
+            <h1>{{hero.heading1}}<br>{{hero.heading2}}</h1>
+            <a href="#view"><div class="h-btn">view gallery </div></a>
+        </div>
+<!-- Gllery -->
+
+      {{#if imgs}}
+        <div class="gallery">
+          <h2 id="view">Gallery</h2>
+          <ul>
+            {{#each imgs}}
+            <li><img src="images/{{this.imgName}}.jpg" alt=""></li>
+            {{/each}}
+          </ul>
+        </div>
+      {{else}}
+      {{/if}}
+    </div>
+

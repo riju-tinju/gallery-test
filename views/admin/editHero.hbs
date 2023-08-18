@@ -1,0 +1,51 @@
+<div>
+  <form action="admin/edit-hero" method="post" class="hero-form">
+    <h1 style="margin:0 0 14px 0px ">Edit Hero</h1>
+    <input name="heading1" type="text" value="{{hero.heading1}}" />
+    <input name="heading2" type="text" value="{{hero.heading2}}" />
+    <button type="submit" class="hero-edit-btn">Submit</button>
+  </form>
+
+  <form
+    enctype="multipart/form-data"
+    action="admin/add-img"
+    method="post"
+    class="hero-form"
+    id="img-add-form"
+  >
+    <h1 style="margin:0 0 14px 0px ">Add Image</h1>
+    <input name="imgName" type="text" placeholder="Enter Image Name" />
+    <input type="file" name="image" class="custom-file-input" />
+    <button type="submit" class="hero-edit-btn">Submit</button>
+  </form>
+
+  <div
+    class="img-table"
+    style="background-color: #f0f8ff;width:100%;display:flex;
+    justify-content:center;align-items:center;padding:30px 40px;flex-direction:column"
+  >
+   {{#if imgs}}
+    <h1 style="margin:0 0 14px 0px ">Gallery</h1>
+    
+    <table id="viewTable">
+      <thead>
+        <tr>
+          <th>Img</th>
+          <th>Img Name</th>
+          <th>Img Action</th>
+        </tr>
+      </thead>
+      <tbody>
+         {{#each imgs}}
+        <tr style="height:80px">
+          <td style="height:100%"><img style="height:60px;width:50px" src="images/{{this.imgName}}.jpg" alt=""></td>
+          <td style="height:100%">{{this.imgName}}</td>
+          <td style="height:100%"><a href="admin/delete/{{this._id}}/{{this.imgName}}">Delete()</a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+  {{/if}}
+  </div>
+</div>
